@@ -16,12 +16,34 @@ Ex:
 void Ex4(char *str)
 {
 	// Your codes here
+	// Your codes here
 	int len = strlen(str);
-	for (int i = 0; i < len; i++)
+	int count = 0;
+	for (int i = 0; i <= len; i++)
 	{
-		if (str[i] != ' ' && str[i + 1] != ' ')
+
+		if (str[i] != ' ')
 		{
-			printf("%c", str[i]);
+			break;
+		}
+		count++;
+	}
+	int count1 = 0;
+	for (int t = len - 1; t > 0; t--)
+	{
+
+		if (str[t] != ' ')
+		{
+			break;
+		}
+		count1++;
+	}
+
+	for (int j = count; j <= len - count1; j++)
+	{
+		if (!(str[j] == ' ' && str[j + 1] == ' '))
+		{
+			printf("%c", str[j]);
 		}
 	}
 }
