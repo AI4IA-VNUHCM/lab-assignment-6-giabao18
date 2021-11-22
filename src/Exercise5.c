@@ -15,13 +15,31 @@ Ex:
 #include <math.h>
 #include <string.h>
 
-void Ex5(char *str){
-	//Your codes here
-	
+void Ex5(char *str)
+{
+	// Your codes here
+	int len = strlen(str);
+	for (int i = len / 2; i >= 0; i--)
+	{
+		for (int j = len / 2 + 1; j <= len; j++)
+		{
+			if (str[i] == str[j])
+			{
+				printf("Valid!");
+				return;
+			}
+			else
+			{
+				printf("Invalid!");
+				return;
+			}
+		}
+	}
 }
 
-int main(int argc, char *argv[]) {
-	//testing variable, applying it to your algorithm for auto-evaluating
+int main(int argc, char *argv[])
+{
+	// testing variable, applying it to your algorithm for auto-evaluating
 	char *testcase = argv[1];
 
 	Ex5(testcase);
