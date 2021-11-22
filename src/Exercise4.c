@@ -39,7 +39,7 @@ void Ex4(char *str)
 		count1++;
 	}
 
-	for (int j = count; j <= len - count1; j++)
+	for (int j = count; j < len - count1; j++)
 	{
 		if (!(str[j] == ' ' && str[j + 1] == ' '))
 		{
