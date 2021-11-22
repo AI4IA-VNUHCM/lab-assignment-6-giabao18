@@ -15,32 +15,34 @@ Ex:
 void Ex2(int n, char *str[])
 {
 	// Your codes here
-	int min_len = strlen(str[0]);
-	for (int i = 0; i < n; i++)
-	{
-		int len = strlen(str[i]);
-		if (len < min_len)
-		{
-			min_len = len;
-		}
-	}
+	int order[n];
 
-	for (int i = 0; i < n - 1; i++)
-	{
-		int lc = i;
-		for (int t = i + 1; t < n; t++)
+	for (int i = 0; i < n; i++)
+		order[i] = i;
+
+	for (int i = 0; i < n; i++)
+		for (int j = i + 1; j < n; j++)
 		{
-			for (int j = 0; j < min_len; j++)
+			int a = 0;
+
+			while (str[order[i]][a] != '\0')
 			{
-				if (str[i][j] > str[t][j])
+				if (str[order[i]][a] > str[order[j]][a])
 				{
-					lc = t;
+					int temp = order[i];
+					order[i] = order[j];
+					order[j] = temp;
 					break;
 				}
+				else if (str[order[i]][a] == str[order[j]][a])
+					a++;
+				else
+					break;
 			}
-			printf("%s ", str[lc]);
 		}
-	}
+
+	for (int i = 0; i < n; i++)
+		printf("%s ", str[order[i]]);
 }
 
 int main(int argc, char *argv[])
