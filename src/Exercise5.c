@@ -19,22 +19,20 @@ void Ex5(char *str)
 {
 	// Your codes here
 	int len = strlen(str);
-	for (int i = len / 2; i >= 0; i--)
+
+	for (int i = len / 2 - 1, j = len / 2; i >= 0, j < len; i--, j++)
 	{
-		for (int j = len / 2 + 1; j <= len; j++)
+		if ((str[i] == '{' && str[j] == '}') || (str[i] == '[' && str[j] == ']') || (str[i] == '(' && str[j] == ')'))
 		{
-			if (str[i] == str[j])
-			{
-				printf("Valid!");
-				return;
-			}
-			else
-			{
-				printf("Invalid!");
-				return;
-			}
+			continue;
+		}
+		else
+		{
+			printf("Invalid!");
+			return;
 		}
 	}
+	printf("Valid!");
 }
 
 int main(int argc, char *argv[])
